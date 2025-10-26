@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viral Hashtag Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: 'Sora', sans-serif;
+      }
+      .gradient-bg {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        overflow: hidden;
+        z-index: -1;
+        top: 0;
+        left: 0;
+      }
+      .gradient-bg > div {
+        position: absolute;
+        filter: blur(80px);
+        border-radius: 50%;
+        animation: move-gradient 15s infinite alternate;
+      }
+      .g1 {
+        background: #9333ea; /* purple-600 */
+        width: 400px;
+        height: 400px;
+        top: 10%;
+        left: 10%;
+      }
+      .g2 {
+        background: #3b82f6; /* blue-500 */
+        width: 300px;
+        height: 300px;
+        top: 30%;
+        right: 10%;
+        animation-delay: -5s;
+      }
+      .g3 {
+        background: #ec4899; /* pink-500 */
+        width: 350px;
+        height: 350px;
+        bottom: 10%;
+        left: 20%;
+        animation-delay: -10s;
+      }
+       .g4 {
+        background: #14b8a6; /* teal-500 */
+        width: 250px;
+        height: 250px;
+        bottom: 20%;
+        right: 25%;
+        animation-delay: -7s;
+      }
+
+      @keyframes move-gradient {
+        from {
+          transform: rotate(0deg) scale(1) translateX(0px);
+        }
+        to {
+          transform: rotate(360deg) scale(1.2) translateX(20px);
+        }
+      }
+
+      .fade-in-stagger {
+          animation: fade-in 0.5s ease-out forwards;
+          opacity: 0;
+      }
+
+      @keyframes fade-in {
+          from {
+              opacity: 0;
+              transform: translateY(10px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0"
+  }
+}
+</script>
+<script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
+</head>
+  <body class="bg-gray-50 dark:bg-slate-950">
+    <div class="gradient-bg">
+      <div class="g1"></div>
+      <div class="g2"></div>
+      <div class="g3"></div>
+      <div class="g4"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

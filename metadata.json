@@ -1,0 +1,5 @@
+{
+  "name": "Viral Hashtag Generator",
+  "description": "An AI-powered web application that generates relevant and viral hashtags for your Instagram Reels and YouTube videos based on the title. Simply enter your title, choose your platform, and get a list of optimized hashtags to boost your reach.",
+  "requestFramePermissions": []
+}
